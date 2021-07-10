@@ -1,0 +1,470 @@
+@import url("css/resetcss.css");
+@font-face {
+  font-family: "digital-7-mono";
+  src: url("/font/digital-7\ \(mono\).ttf");
+}
+
+:root {
+  --main-bg-color: rgba(0, 0, 0);
+  --sub-color: rgb(255, 255, 255);
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+}
+
+.filter {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.coverContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.nowPlaying {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: 600px;
+}
+
+.albumCover {
+  cursor: pointer;
+  margin-top: 2px;
+  margin-bottom: 25px;
+  width: 450px;
+  height: 450px;
+  position: relative;
+  z-index: 1;
+  bottom: 0px;
+  transition: all 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.albumCover img {
+  width: 450px;
+  height: 450px;
+}
+
+@keyframes albumhovering {
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+.albumCover:hover {
+  transition: all 0.53s;
+  transition-timing-function: ease-in-out;
+  position: relative;
+  box-shadow: 0px 15px 0px #000;
+  z-index: 1;
+}
+
+.shadow {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  position: relative;
+  box-shadow: 0px 15px 0px var(--main-bg-color);
+}
+
+.playing {
+  animation: albumhovering 5s ease-in-out infinite;
+}
+
+.shadow:hover {
+  transition: all 0.3s;
+  transition-timing-function: ease-in;
+  position: relative;
+  box-shadow: 0px 15px 0px var(--main-bg-color);
+}
+
+.audioControlArea {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  position: inherit;
+  opacity: 1;
+  bottom: 70px;
+  width: 450px;
+  height: 100px;
+  background-color: var(--main-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "digital-7-mono";
+  cursor: pointer;
+  font-size: 35px;
+  z-index: 0;
+  color: var(--sub-color);
+}
+
+.audioControlArea:hover {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  bottom: 30px;
+  opacity: 1;
+  background-color: var(--main-bg-color);
+}
+
+.albumTop {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  top: 5px;
+  width: 450px;
+}
+
+.albumTopPlaying {
+  display: flex;
+  position: relative;
+  top: 5px;
+  width: 450px;
+  background-color: var(--main-bg-color);
+}
+
+.clock {
+  position: relative;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  font-size: 60px;
+  font-family: "digital-7-mono";
+  padding-left: 8px;
+  color: #000;
+}
+
+.clockplaying {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  position: relative;
+  color: var(--sub-color);
+}
+
+.weather {
+  font-family: "digital-7-mono";
+  position: relative;
+  font-size: 60px;
+}
+
+.weather i {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  position: relative;
+  bottom: 5px;
+  margin-right: 10px;
+  font-size: 35px;
+}
+
+.weatherPlaying {
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  color: var(--sub-color);
+}
+
+.wellcome {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  opacity: 1;
+  z-index: 97;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-bg-color);
+}
+
+.display {
+  display: none;
+}
+
+@keyframes hideSplashScreen {
+  0% {
+    opacity: 1;
+    height: 100%;
+    top: 0px;
+  }
+  15% {
+    height: 100%;
+  }
+  50% {
+    opacity: 1;
+    height: 8%;
+  }
+  100% {
+    opacity: 0;
+    height: 8%;
+    top: -50px;
+  }
+}
+
+@keyframes hideSplashScreen2 {
+  from {
+    opacity: 0;
+    height: 8%;
+    top: -50px;
+  }
+  to {
+    opacity: 0;
+    height: 8%;
+    top: -50px;
+  }
+}
+
+.hidden {
+  width: 100%;
+  height: 8%;
+  top: -50px;
+  opacity: 0;
+  transition-timing-function: ease-in-out;
+  animation: hideSplashScreen 3s ease-in-out;
+}
+
+.hidden:hover {
+  top: 0px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.greeting {
+  display: flex;
+  z-index: 98;
+  color: var(--sub-color);
+  font-size: 60px;
+  font-family: "digital-7-mono";
+}
+
+.loginForm {
+  font-size: 40px;
+  font-family: "digital-7-mono";
+  text-align: center;
+}
+
+input[type="submit"] {
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  color: rgb(145, 197, 70);
+  background-color: #333;
+}
+
+input[type="submit"]:hover {
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  color: rgb(189, 40, 40);
+  background-color: #333;
+}
+
+.navBar {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  z-index: 95;
+  background-color: var(--main-bg-color);
+  color: var(--sub-color);
+  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+.navBar li {
+  text-align: center;
+  font-family: "digital-7-mono";
+}
+
+.navBar li:first-child {
+  font-size: 50px;
+}
+
+.navBar li:last-child {
+  font-size: 30px;
+}
+
+.navBar:hover {
+  position: absolute;
+  height: 12%;
+  opacity: 1;
+}
+
+a:link {
+  color: var(--sub-color);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--sub-color);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--sub-color);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #000;
+  color: rgb(145, 197, 70);
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.thanksTo {
+  font-size: 25px;
+  font-family: "digital-7-mono";
+  text-align: center;
+  margin-bottom: 10px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.designedBy {
+  font-size: 45px;
+  font-family: "digital-7-mono";
+  margin-bottom: 25px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.colorT {
+  font-size: 20px;
+  font-family: "digital-7-mono";
+  margin-bottom: 10px;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.thanksTo:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: rgb(145, 197, 70);
+}
+
+.colorT:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: rgb(145, 197, 70);
+}
+
+.todo {
+  z-index: 96;
+}
+
+.todo input {
+  font-size: 40px;
+  width: 500px;
+  font-family: "digital-7-mono";
+  background-color: transparent;
+  color: var(--sub-color);
+  border: 0px solid;
+  text-align: center;
+}
+
+#todo-form {
+  border-bottom: 1px solid;
+  border-color: var(--sub-color);
+  padding-bottom: 60px;
+  margin-bottom: 25px;
+}
+
+.todo input:focus {
+  border: 0px solid;
+  outline: none;
+}
+
+#todo-list li {
+  width: 500px;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "digital-7-mono";
+}
+
+#todo-list li:hover {
+  width: 500px;
+  font-size: 30px;
+  font-family: "digital-7-mono";
+  background-color: var(--sub-color);
+  color: var(--main-bg-color);
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+#todo-list li span:hover {
+  color: rgb(189, 40, 40);
+}
+
+#too-small {
+  position: absolute;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "digital-7-mono";
+  font-size: 40px;
+  color: rgb(189, 40, 40);
+  top: 0px;
+}
+
+#too-short {
+  position: absolute;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "digital-7-mono";
+  text-align: center;
+  font-size: 40px;
+  color: rgb(189, 40, 40);
+  top: 0px;
+}
+
+@media screen and (min-width: 550px) {
+  #too-small {
+    display: none;
+  }
+}
+
+@media screen and (min-height: 900px) {
+  #too-short {
+    display: none;
+  }
+}

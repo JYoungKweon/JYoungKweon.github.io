@@ -1,0 +1,42 @@
+export const musics = [
+  {
+    musicNum: 0,
+    musicTitle: "LILAC",
+    musicAlbumTitle: "LILAC",
+    musicSinger: "IU",
+    musicFile: "iu_lilac.mp3",
+    musicAlbumFile: "iu_lilac.jpg",
+  },
+  {
+    musicNum: 1,
+    musicTitle: "WEEKEND",
+    musicAlbumTitle: "WEEKEND",
+    musicSinger: "TAEYEON",
+    musicFile: "taeyeon_weekend.mp3",
+    musicAlbumFile: "taeyeon_weekend.jpg",
+  },
+  {
+    musicNum: 2,
+    musicTitle: "WARIGARI",
+    musicAlbumTitle: "11",
+    musicSinger: "HYUKOH",
+    musicFile: "hyukoh_warigari.mp3",
+    musicAlbumFile: "hyukoh_22.jpg",
+  },
+  {
+    musicNum: 3,
+    musicTitle: "LEGEND",
+    musicAlbumTitle: "LEGEND",
+    musicSinger: "JANNABI",
+    musicFile: "jannabi_legend.mp3",
+    musicAlbumFile: "jannabi_legned.jpg",
+  },
+  {
+    musicNum: 4,
+    musicTitle: "RUN",
+    musicAlbumTitle: "SUPERSONIC",
+    musicSinger: "Yoonha",
+    musicFile: "yoonha_run.mp3",
+    musicAlbumFile: "yoonha_supersonic.jpg",
+  },
+];
